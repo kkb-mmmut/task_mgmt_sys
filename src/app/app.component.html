@@ -1,0 +1,124 @@
+<!--Main Navigation-->
+<header class="mb-10">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button"  (click)="togglerCollapse.toggle()" aria-controls="list-menu" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    <!-- Brand name logo -->
+      <a class="navbar-brand mt-2 mt-lg-0" routerLink="/task-mgmt-sys/">
+        <img
+        src="../assets/images/logo.png"
+        height="35" 
+        alt="TMS APP"
+        loading="lazy"
+      />
+      </a>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="list-menu" mdbCollapse #togglerCollapse="mdbCollapse">
+        <!-- Navbar brand -->
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/task-mgmt-sys/">Dashboard <i class="far fa-rectangle-list"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/task-mgmt-sys/in-progress">In Progress <i class="fas fa-arrow-trend-up"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/task-mgmt-sys/completed">Completed <i class="fas fa-check-double"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/task-mgmt-sys/history">History <i class="fas fa-arrow-rotate-left"></i></a>
+          </li>
+        </ul>
+        <!-- Left links -->
+        <!-- Collapsible wrapper -->
+        
+        <!-- Right elements --> 
+        <div class="d-flex align-items-center">
+          <!-- Icon -->  
+          <div class="dropdown" >
+            <ul class="navbar-nav">
+              <!-- Dropdown -->
+              <li mdbDropdown class="nav-item dropdown">
+                <a class="nav-link " routerLink="/logout" id="logout" role="button" >
+                  <i  class="fas fa-circle-user"></i>
+                  <span class="badge rounded-pill badge-notification bg-danger">{{runningtask}}</span>  
+                  <ng-container *ngIf="user_login; then thenLogout; else elseLogin"></ng-container>
+                  <ng-template #thenLogout>
+                    <span routerLink="/task-mgmt-sys">&nbsp;&nbsp;&nbsp;  Logout <i class="fas fa-arrow-right-from-bracket"></i></span>
+                  </ng-template>
+                  <ng-template #elseLogin>
+                    <span  routerLink="/task-mgmt-sys/sign-in">&nbsp;&nbsp;&nbsp;  Login <i class="fas fa-arrow-right-from-bracket"></i></span>
+                  </ng-template>
+                   
+                </a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Right elements -->
+      
+    </div> 
+  </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+  </header>
+
+
+<!-- The routed views render in the <router-outlet>-->
+  <router-outlet ></router-outlet>
+ 
+  <footer class="bg-light text-center footer-custom ">
+    <!-- Grid container 
+    <div class="container p-4 pb-0"> 
+      <ng-container *ngIf="user_login; then thenFooter; else elseFooter"></ng-container> 
+      <ng-template #thenFooter>
+        <p></p>
+      </ng-template>
+      <ng-template #elseFooter>
+        <section class="footer_login">
+          <form action="/sign-up"> 
+            <div class="row d-flex justify-content-center"> 
+              <div class="col-auto">
+                <p class="pt-2">
+                  <strong>Sign up to store your tasks globally!!</strong>
+                </p>
+              </div> 
+              <div class="col-md-5 col-12"> 
+                <mdb-form-control class="mb-4">
+                  <input mdbInput type="email" id="form5Example27" class="form-control" />
+                  <label mdbLabel class="form-label" for="form5Example27">Email address</label>
+                </mdb-form-control>
+              </div> 
+              <div class="col-auto"> 
+                <button mdbRipple type="submit" class="btn btn-primary mb-4" routerLink="/app-sign-up">
+                  Register
+                </button>
+              </div> 
+            </div> 
+          </form>
+        </section>
+      </ng-template>
+        
+    </div> 
+   -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3  fixed-bottom" style="background-color: rgba(0, 0, 0, 0.2);">
+      Task Management System © 2023 Copyright:
+      <a class="text-dark" href="https://www.linkedin.com/in/kkb-kamlesh/">Kamlesh Bind</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+ 
+
+ 

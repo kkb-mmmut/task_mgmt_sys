@@ -1,0 +1,50 @@
+
+<div id="container"  class="container"> 
+    <span id="input-placeholder-icon"> 
+    </span>
+    <input
+      placeholder="Your's Past Works!"
+      class="add-task"
+      id="add"
+      value="Your's Past Works!"
+      disabled
+    />
+    <span id="total-tasks"
+      >Total tasks: <span id="tasks-counter">{{total_task}}</span></span
+    >  
+    <div id="list-item">
+      <ul id="list" *ngFor="let item of todoslist">
+        <li> 
+        <ng-container *ngIf="item.isCompleted; then thenTemplate; else elseTemplate"></ng-container>
+        <ng-template #thenTemplate>
+          <img src="https://img.icons8.com/?size=512&id=cRL5H8HnZiXZ&format=png" class="progress" data-id="12" />
+          <label for={{item.id}} [ngStyle]="{color:'red',textDecoration:'line-through'}" >{{item.desc}}</label> 
+        </ng-template>
+        <ng-template #elseTemplate>
+          <img src="https://img.icons8.com/?size=512&id=CCYerNZUzyNl&format=png" class="progress" data-id="12" />
+          <label for={{item.id}}>{{item.desc}}</label>
+        </ng-template>
+        <span [ngSwitch]="item.priority"> 
+          <span *ngSwitchCase="'high'">
+            <img src="https://img.icons8.com/?size=512&id=Vtv1Seexiz5k&format=png" class="priority" data-id="12" alt="Highest priority"/>
+          </span>
+          <span *ngSwitchCase="'low'">
+            <img src="https://img.icons8.com/?size=512&id=2zvjnouG33Wa&format=png" class="priority" data-id="12" alt="Low Priority"/>
+          </span>
+          <span *ngSwitchDefault>
+            <img src="https://img.icons8.com/?size=512&id=SpG4qJvmntf1&format=png" class="priority" data-id="12" alt="Medium Priority"/>
+          </span>  
+        </span> 
+        <img src="https://img.icons8.com/?size=512&id=H7cJKYmYlggf&format=png" class="delete" data-id="12" />
+        <!-- <label for={{item.id}}>{{item.desc}}</label>  --> 
+      </li>
+      </ul>
+    </div>
+    <span id="remaining-tasks"
+      >Remaining tasks:<span id="remaining-task">{{remaining_task}}</span></span
+    >
+    <span id="completed-tasks"
+      >Completed:<span id="done-tasks-counter">{{completed_task}} </span></span
+    >  
+    <span id="export-as-csv" class="export-as-csv">Export Past Work's as CSV</span>
+  </div>
