@@ -1,6 +1,20 @@
 # TaskMgmtSys
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+It's a list of tasks you need to complete or things that you want to do. Most typically, we are organised in order of priority. 
+
+
+## Development Link
+    [Click to Run the Project]:(https://task-management-system-5063b.web.app/task-mgmt-sys)
+
+
+## Technologies USed
+
+    1- Angular 
+    2- NGRX
+    3- SCSS
+    4- HTML
+    5- JavaScript
+    6- MDB Bootstrap  
 
 ## Development server
 
